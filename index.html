@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận mã ưu đãi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="background">
+        <h1>Chào mừng bạn đến với trang nhận mã ưu đãi</h1>
+        <button id="get-code">Nhận mã ưu đãi</button>
+
+        <div id="code-display" style="display: none;">
+            <p id="discount-code">ABC</p>
+            <button id="copy-code">Sao chép và sử dụng mã ưu đãi ngay</button>
+        </div>
+    </div>
+
+    <script>
+        // Khi nhấn nút "Nhận mã ưu đãi"
+        document.getElementById("get-code").onclick = function() {
+            // Hiển thị mã ưu đãi và nút sao chép
+            document.getElementById("code-display").style.display = "block";
+        };
+
+        // Khi nhấn nút "Sao chép và sử dụng mã ưu đãi ngay"
+        document.getElementById("copy-code").onclick = function() {
+            // Mã ưu đãi
+            var code = document.getElementById("discount-code").textContent;
+            
+            // Sao chép mã vào clipboard
+            navigator.clipboard.writeText(code).then(function() {
+                alert("Mã ưu đãi đã được sao chép: " + code);
+                
+                // Chuyển hướng tới Zalo OA
+                window.location.href = "https://zalo.me/YourZaloOALink"; // Thay bằng link Zalo OA của bạn
+            }).catch(function(error) {
+                alert("Không thể sao chép mã. Hãy thử lại!");
+            });
+        };
+    </script>
+
+</body>
+</html>
